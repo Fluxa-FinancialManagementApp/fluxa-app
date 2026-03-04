@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="assets/logo/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Fluxa | Login</title>
+</head>
+<body>
+    <main>
+        <section class="apresentacao">
+            <div class="logo-container">
+                <img src="assets/logo/fluxa_logo_v2.svg" alt="Logo Fluxa" width="40">
+                <span>Fluxa</span>
+                <p>Controle financeiro</p>
+            </div>
+
+            <h1>Organize seu <strong>dinheiro</strong> de forma simples e prática.</h1>
+            <p>O lugar onde você para de se enrolar com as finanças.</p>
+
+            <div class="card-beneficio">
+                <img src="assets/logo/icone-grafico-fluxa-clean.svg" alt="Ícone de gráfico">
+                <div>
+                    <h3>Tudo num só lugar</h3>
+                    <p>Ganhos, despesas, metas, investimentos e importação (CSV/OFX) — tudo no mesmo painel.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="login">
+            <div class="box-entrada">
+                <h2>Entrar</h2>
+                <p>Use seu e-mail ou telefone para acessar.</p>
+
+                <form id="form-login">
+                    <div class="campo form-floating">
+                        <input type="text" id="identificacao" placeholder=" ">
+                        <label for="identificacao">E-mail ou telefone</label>
+                    </div>
+
+                    <div class="campo caixa-senha form-floating">
+                        <input type="password" id="senha" placeholder=" ">
+                        <label for="senha">Senha</label>
+
+                        <span id="caps-aviso" class="caps-aviso" title="Caps Lock ativado">⚠️</span>
+
+                        <button type="button" id="btn-revelar" class="btn-revelar" aria-label="Mostrar senha">
+                            <svg id="icone-olho" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <p id="mensagem-erro" class="mensagem-erro"></p>
+
+                    <button type="submit">Entrar</button>
+
+                    <div class="links-auxiliares">
+                        <a href="#">Esqueceu a senha?</a>
+                        <span>Não tem uma conta? <a href="#">Cadastre-se</a></span>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none"
+     xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradiente Fluxa (azul -> verde) -->
+    <linearGradient id="fluxaGrad" x1="10" y1="10" x2="54" y2="54" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#36F0FF"/>
+      <stop offset="0.55" stop-color="#2F6BFF"/>
+      <stop offset="1" stop-color="#39FFD2"/>
+    </linearGradient>
+
+    <!-- Glow suave para usar em dark UI -->
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="1.8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Fundo transparente (ícone puro) -->
+  <!-- Moldura/área do gráfico -->
+  <path d="M14 14V50H50" stroke="url(#fluxaGrad)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"
+        filter="url(#softGlow)"/>
+
+  <!-- Barras -->
+  <path d="M22 44V34" stroke="url(#fluxaGrad)" stroke-width="3.2" stroke-linecap="round" filter="url(#softGlow)"/>
+  <path d="M30 44V28" stroke="url(#fluxaGrad)" stroke-width="3.2" stroke-linecap="round" filter="url(#softGlow)"/>
+  <path d="M38 44V22" stroke="url(#fluxaGrad)" stroke-width="3.2" stroke-linecap="round" filter="url(#softGlow)"/>
+
+  <!-- Linha de tendência -->
+  <path d="M21.5 30.5L29 25.5L36 29L44 20.5" stroke="url(#fluxaGrad)" stroke-width="2.6"
+        stroke-linecap="round" stroke-linejoin="round" filter="url(#softGlow)"/>
+
+  <!-- Pontos -->
+  <circle cx="21.5" cy="30.5" r="2.3" fill="#0B1328" stroke="url(#fluxaGrad)" stroke-width="2" filter="url(#softGlow)"/>
+  <circle cx="29" cy="25.5" r="2.3" fill="#0B1328" stroke="url(#fluxaGrad)" stroke-width="2" filter="url(#softGlow)"/>
+  <circle cx="36" cy="29" r="2.3" fill="#0B1328" stroke="url(#fluxaGrad)" stroke-width="2" filter="url(#softGlow)"/>
+  <circle cx="44" cy="20.5" r="2.3" fill="#0B1328" stroke="url(#fluxaGrad)" stroke-width="2" filter="url(#softGlow)"/>
+</svg>

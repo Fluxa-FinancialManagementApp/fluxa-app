@@ -1,0 +1,329 @@
+/* =========================================
+   1. VARIÁVEIS (A Paleta do Sistema Financeiro)
+   ========================================= */
+:root {
+    --bg-base: #060b14; 
+    --fluxa-ciano: #00F0FF;
+    --fluxa-azul: #0055FF; 
+    --texto-brilhante: #F8FAFC;
+    --texto-suave: #94A3B8;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-borda: rgba(255, 255, 255, 0.08);
+    --glass-sombra: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* =========================================
+   2. RESET E CORPO DA PÁGINA
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--bg-base);
+    background-image: 
+        radial-gradient(circle at 15% 50%, rgba(0, 85, 255, 0.15), transparent 40%),
+        radial-gradient(circle at 85% 30%, rgba(0, 240, 255, 0.05), transparent 40%);
+    color: var(--texto-brilhante);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+/* =========================================
+   3. ESTRUTURA PRINCIPAL
+   ========================================= */
+main {
+    display: flex;
+    max-width: 1350px; 
+    width: 100%;
+    padding: 2rem;
+    gap: 12rem; 
+    align-items: center;
+    justify-content: space-between;
+}
+
+section {
+    flex: 1;
+}
+
+/* =========================================
+   4. LADO ESQUERDO (Apresentação)
+   ========================================= */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 3rem;
+}
+
+.logo-container span {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.logo-container p {
+    color: var(--texto-suave);
+    font-size: 0.9rem;
+    margin-top: 4px;
+    border-left: 1px solid var(--glass-borda);
+    padding-left: 12px;
+}
+
+.apresentacao h1 {
+    font-size: 2.8rem;
+    line-height: 1.15;
+    margin-bottom: 1.2rem;
+    letter-spacing: -1px;
+}
+
+.apresentacao h1 strong {
+    background: linear-gradient(90deg, var(--fluxa-ciano), var(--fluxa-azul));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.apresentacao > p {
+    color: var(--texto-suave);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    max-width: 90%;
+}
+
+.card-beneficio {
+    padding: 1.5rem;
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-borda);
+    border-radius: 12px;
+}
+
+.card-beneficio h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
+}
+
+.card-beneficio p {
+    color: var(--texto-suave);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* =========================================
+   5. LADO DIREITO (Login)
+   ========================================= */
+.box-entrada {
+    padding: 3rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-borda);
+    box-shadow: var(--glass-sombra);
+    border-radius: 20px;
+}
+
+.box-entrada h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.5px;
+}
+
+.box-entrada p {
+    color: var(--texto-suave);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+}
+
+.campo {
+    margin-bottom: 1.2rem;
+}
+
+.campo input {
+    width: 100%;
+    /* Ajustei o padding para dar espaço ao rótulo flutuante no topo */
+    padding: 22px 16px 10px 16px; 
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    color: var(--texto-brilhante);
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.campo input:focus {
+    border-color: var(--fluxa-azul); 
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 0 3px rgba(0, 85, 255, 0.15);
+}
+
+/* =========================================
+   6. BOTÃO NEON GLASS (AZUL)
+   ========================================= */
+button[type="submit"] {
+    width: 100%;
+    padding: 16px;
+    background: rgba(0, 85, 255, 0.15); 
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 85, 255, 0.6);
+    color: #FFFFFF;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 0 15px rgba(0, 85, 255, 0.4), 
+        inset 0 0 10px rgba(0, 85, 255, 0.2); 
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-2px);
+    background: rgba(0, 85, 255, 0.25);
+    border-color: rgba(0, 85, 255, 0.9);
+    box-shadow: 
+        0 0 25px rgba(0, 85, 255, 0.6), 
+        inset 0 0 15px rgba(0, 85, 255, 0.4);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+    box-shadow: 
+        0 0 10px rgba(0, 85, 255, 0.4), 
+        inset 0 0 5px rgba(0, 85, 255, 0.2);
+}
+
+.links-auxiliares {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+.links-auxiliares a {
+    color: var(--fluxa-azul); 
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.links-auxiliares a:hover {
+    color: var(--texto-brilhante);
+    text-shadow: 0 0 8px rgba(0, 85, 255, 0.6); 
+}
+
+/* =========================================
+   7. RESPONSIVIDADE
+   ========================================= */
+@media (max-width: 1000px) {
+    main {
+        flex-direction: column;
+        gap: 4rem;
+        padding: 1.5rem;
+    }
+    .box-entrada {
+        padding: 2rem;
+    }
+}
+
+/* =========================================
+   8. AJUSTES JAVASCRIPT & MELHORIAS (SÊNIOR)
+   ========================================= */
+
+/* A. Rótulos Flutuantes (Floating Labels) */
+.form-floating {
+    position: relative;
+}
+
+.form-floating label {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
+    color: var(--texto-suave);
+    pointer-events: none;
+    transition: 0.2s ease all;
+    font-size: 1rem;
+}
+
+/* Quando o campo está em foco OU não está vazio, o rótulo sobe e fica azul */
+.form-floating input:focus ~ label,
+.form-floating input:not(:placeholder-shown) ~ label {
+    top: 14px;
+    font-size: 0.75rem;
+    color: var(--fluxa-azul);
+    font-weight: 600;
+}
+
+/* B. Caixa da Senha e Olho */
+.caixa-senha {
+    position: relative;
+}
+
+.btn-revelar {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%); 
+    background: none;
+    border: none;
+    color: var(--texto-suave);
+    cursor: pointer;
+    transition: color 0.3s;
+    padding: 0;
+    z-index: 2; /* Garante que o botão fica clicável acima do input */
+}
+
+.btn-revelar:hover {
+    color: var(--fluxa-azul); /* Corrigido para o seu Azul */
+}
+
+/* C. Aviso de Caps Lock */
+.caps-aviso {
+    position: absolute;
+    right: 45px; /* Fica ao lado do ícone do olho */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    display: none; /* Escondido por padrão, o JS vai mostrar */
+    z-index: 2;
+}
+
+/* D. Mensagem de Alerta Padrão */
+.mensagem-erro {
+    color: #ff4d4d; 
+    font-size: 0.85rem;
+    text-align: center;
+    min-height: 20px; 
+    margin-bottom: 10px;
+    margin-top: -5px;
+    font-weight: 500;
+}
+
+/* E. Animação de Erro (Tremor) */
+@keyframes tremor {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}
+
+.erro-input {
+    border-color: #ff4d4d !important;
+    animation: tremor 0.3s ease-in-out;
+    background: rgba(255, 77, 77, 0.05) !important;
+}

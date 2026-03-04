@@ -1,0 +1,27 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["multiSchema"]
+}
+
+datasource db {
+  provider = "postgresql"
+  schemas  = ["auth", "public"]
+}
+
+model User {
+  // ID com 12 caracteres (Short ID)
+  user_id             String    @id @default(dbgenerated("SUBSTRING((gen_random_uuid())::text, 1, 12)")) @db.VarChar(15)
+  display_name        String    @db.VarChar(100)
+  email               String    @unique
+  password_hash       String
+  role                String    @default("cliente") @db.VarChar(20)
+  reset_token         String?   @db.VarChar(255)
+  reset_token_expires DateTime? @db.Timestamptz
+  is_active           Boolean   @default(true)
+  created_at          DateTime  @default(now()) @db.Timestamptz
+  updated_at          DateTime  @default(now()) @updatedAt @db.Timestamptz
+  deleted_at          DateTime? @db.Timestamptz
+
+  @@map("users")
+  @@schema("auth")
+}
