@@ -1,36 +1,80 @@
 # Fluxa — Architecture
 
 ## Goal
-Fluxa is a personal and family finance system focused on:
+Fluxa is a personal and family financial management system focused on:
 - Income and expense tracking
 - CSV and OFX imports
-- Secure data handling
+- Data security
 - Scalable architecture for a future SaaS and mobile app
 
-## Repositories / Apps
-This repository is organized as a lightweight monorepo:
+## Repository Structure (Monorepo)
+This repository uses a lightweight monorepo layout:
 
-- `apps/web`: Frontend (initially a static login screen, later the full UI)
-- `apps/api`: Backend API (authentication and business rules)
-- `fluxa_db`: SQL assets, drafts, and DB-related materials
-- `docs`: Project documentation
+- `apps/web` → Frontend (currently the login page)
+- `apps/api` → Backend API (authentication and business rules)
+- `docs` → Project documentation
+- `fluxa_db` → SQL scripts and database assets
 
-## High-level Flow (MVP)
-1. User opens the web app (`apps/web`)
-2. Web app sends login/register requests to the API (`apps/api`)
-3. API validates credentials and issues a session/token
-4. Web app stores the token (or session cookie) and calls protected endpoints
-5. API accesses the database(s) and returns data to the web app
+## High-level Components
 
-## Security Principles (MVP)
-- Never store passwords in plain text (use hashing)
-- Use environment variables for secrets (`.env`)
-- Do not commit `.env` to GitHub
-- Validate and sanitize inputs on the API
-- Apply least privilege on DB users
+### Web (apps/web)
+Responsibilities:
+- UI screens (login now; dashboard later)
+- Calls the API endpoints via HTTP (fetch)
+- Displays validation and error messages
 
-## Future (Roadmap)
-- Separate databases: AuthDB, FinanceDB, BillingDB
-- Multi-user support with tenant isolation
-- Import pipelines (CSV/OFX) with validation and audit logs
-- Observability: logs, metrics, alerts
+Current app:
+- `apps/web/login`
+  - `index.html`
+  - `css/style.css`
+  - `js/script.js`
+  - `assets/logo/*` (icons, favicons, svg)
+
+### API (apps/api)
+Responsibilities:
+- Authentication endpoints (login now; register and others later)
+- Input validation and normalization (e.g., lowercasing email)
+- Password verification using bcrypt
+- Communicates with PostgreSQL through Prisma
+
+Current endpoint:
+- `POST /login`
+
+Current stack:
+- Node.js + Express
+- Prisma ORM + PostgreSQL
+- bcrypt
+- CORS enabled for local development
+
+### Database (PostgreSQL)
+Single database:
+- `fluxa_db`
+
+Logical separation using schemas (gavetas):
+- `auth` → authentication and users (implemented)
+- `finance` → accounts/transactions/categories (planned)
+- `billing` → subscriptions/payments (planned)
+
+## Current MVP Flow (Login)
+1. User opens `apps/web/login/index.html`
+2. User submits email + password
+3. Frontend calls `POST http://localhost:3000/login`
+4. API normalizes email and checks user status
+5. API validates password with bcrypt vs `password_hash`
+6. API returns:
+   - `200` with user data when OK
+   - `401/403` when invalid credentials or inactive user
+7. Frontend shows success message and stores user info in `localStorage`
+
+## Security Notes (Current)
+- Passwords are stored hashed (`password_hash`)
+- API uses bcrypt to compare password hashes
+- `.env` must never be committed
+- CORS is enabled (development)
+
+## Next Steps (Planned)
+- Add `auth/register` endpoint
+- Add sessions / tokens (JWT or secure cookie)
+- Add schema `finance` and its tables
+- Add CSV/OFX import pipeline
+- Add authorization rules based on `role`
