@@ -142,7 +142,7 @@ Tools - Git - GitHub - VS Code
 
 ------------------------------------------------------------------------
 
-# Author
+# Authors
 
 Felipe Camacho  
 Daniel Sacramento  
