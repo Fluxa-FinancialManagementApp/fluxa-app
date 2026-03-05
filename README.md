@@ -144,7 +144,9 @@ Tools - Git - GitHub - VS Code
 
 # Author
 
-Felipe Camacho
+Felipe Camacho  
+Daniel Sacramento  
+Luiz Henrique
 
 ------------------------------------------------------------------------
 
